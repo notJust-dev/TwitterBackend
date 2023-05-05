@@ -4,8 +4,6 @@ import { PrismaClient } from '@prisma/client';
 const router = Router();
 const prisma = new PrismaClient();
 
-const JWT_SECRET = 'SUPER SECRET'; //
-
 // Tweet CRUD
 
 // Create Tweet
