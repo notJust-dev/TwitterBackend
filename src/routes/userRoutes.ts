@@ -6,6 +6,14 @@ const prisma = new PrismaClient();
 
 // User CRUD
 
+/*
+  Test with curl:
+
+  curl -X POST -H "Content-Type: application/json" \
+       -d '{"name": "Elon Musk", "email": "doge@twitter.com", "username": "elon"}' \
+       http://localhost:3000/user/
+
+*/
 // Create user
 router.post('/', async (req, res) => {
   const { email, name, username } = req.body;
@@ -41,6 +49,14 @@ router.get('/:id', async (req, res) => {
   res.json(user);
 });
 
+/*
+  Test with curl:
+
+  curl -X PUT -H "Content-Type: application/json" \
+       -d '{"name": "Vadim", "bio": "Hello there!"}' \
+       http://localhost:3000/user/1
+
+*/
 // update user
 router.put('/:id', async (req, res) => {
   const { id } = req.params;
@@ -57,6 +73,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
+// curl -X DELETE http://localhost:3000/user/6
 // delete user
 router.delete('/:id', async (req, res) => {
   const { id } = req.params;
